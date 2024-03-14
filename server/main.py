@@ -19,10 +19,10 @@ async def say_hello():
 
 
 @app.get("/api/events-categories")
-def read_events_categories(skip: Optional[int] = 0, limit: Optional[int] = 10):
+def read_events_categories(skip: Optional[int] = 0, limit: Optional[int] = 3):
     return events['events_categories'][skip: skip + limit]
 
 
 @app.get("/api/events")
-def read_events():
-    return events['allEvents']
+def read_events(skip: Optional[int] = 0, limit: Optional[int] = 15):
+    return events['allEvents'][skip: skip + limit]
