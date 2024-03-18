@@ -1,1 +1,23 @@
+---
+// Import the fetch function
+import fetch from 'node-fetch';
+
+// Define the API URL
+const API_URL = 'http://localhost:8000/api/events'; // Replace with your actual API URL
+
+// Fetch the data from the API
+const opts = {}; // Define the opts variable
+const response = await fetch(API_URL, opts);
+const data = await response.json();
+---
+<section>
+  {data.map(event => (
+    <article>
+      <h2>{event.title}</h2>
+      <p>{event.city}</p>
+      <p>{event.description}</p>
+      <img src={event.image} alt={event.title} />
+    </article>
+  ))}
+</section>
 
